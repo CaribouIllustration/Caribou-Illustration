@@ -128,9 +128,9 @@
 </div>
 
 <div class="navbar">
-    <a id = "Protfolio" href="#">Portfolio</a>
-    <a id = "Commissions" href="#">Commissions</a>
-    <a id = "Socials" href="#">Socials</a>
+    <a id = Protfolio href="#">Portfolio</a>
+    <a id = Commissions href="#">Commissions</a>
+    <a id = Socials href="#">Socials</a>
 </div>
 
 <div id = body class="row">
@@ -149,27 +149,26 @@
 </div>
 
 <script>
-    document.getElementById("Portfolio").addEventListener("click", () => {
+    document.getElementById("Protfolio").addEventListener("click", () => {
         updatePortfolio() 
     });
     function updatePortfolio() {
-        document.getElementById("body").getElementById("main").innerHTML = "Portfolio";
+        document.getElementById("main").innerHTML = "Portfolio";
     }
 
     document.getElementById("Commissions").addEventListener("click", () => {
         updateCommissions() 
     });
     function updateCommissions() {
-        ddocument.getElementById("body").getElementById("main").innerHTML = "Commissions";
+        document.getElementById("main").innerHTML = "Commissions";
     }
 
     document.getElementById("Socials").addEventListener("click", () => {
         updateSocials() 
     });
     function updateSocials() {
-        document.getElementById("body").getElementById("main").innerHTML = "Socials";
+        document.getElementById("main").innerHTML = "Socials";
     }
-
 
 </script>
 
