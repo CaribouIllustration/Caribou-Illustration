@@ -5,18 +5,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+    
     body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
     }
-    
+
+ 
     /* Style the header */
     .header {
-        padding: 150px;
+        padding: 100px;
         background: #102f0b;
         background-image:  url(images/Banner/Logo\ White.png), url(images/Banner/Banner\ Left.jpg), url(images/Banner/Banner\ Right.jpg);
         background-position: center, left, right;
         background-repeat: no-repeat, no-repeat, no-repeat;
+        background-size: contain, contain, contain;
 
     }
     
@@ -98,7 +101,8 @@
     }
 
     .Portrait{
-        flex: 45%;
+        flex: 50%;
+        min-height: 100px;
         background-image: url(images/Bio/Bio\ Image.png);
         background-position: center;
         background-size: contain;
@@ -107,11 +111,12 @@
     }
 
     .sectionBreak{
-        flex: 10%
+        flex: 10%;
+        min-height: 20px;
     }
 
     .Bio{
-        flex: 45%;
+        flex: 40%;
         color: white;
         text-align: center;
         background-color: black;
@@ -142,6 +147,8 @@
 
     .footer {
         padding: 10px; /* Some padding */
+        flex: 5%;
+        height: 5%;
         text-align: center; /* Center text*/
         background: #ddd; /* Grey background */
 
@@ -150,57 +157,57 @@
 </style>
 </head>
 <body onload="updatePortfolio()">
+<div class="container">
+    <div class="header">
+    </div>
 
-<div class="header">
-</div>
+    <div class="navbar">
+        <a id = Protfolio href="#">Portfolio</a>
+        <a id = Commissions href="#">Commissions</a>
+        <a id = Socials href="#">Socials</a>
+    </div>
 
-<div class="navbar">
-    <a id = Protfolio href="#">Portfolio</a>
-    <a id = Commissions href="#">Commissions</a>
-    <a id = Socials href="#">Socials</a>
-</div>
-
-<div class="row">
-    <div class="side"> 
-        <div class="Portrait">
+    <div class="row">
+        <div class="side"> 
+            <div class="Portrait">
+            </div>
+            <div class="sectionBreak">
+            </div>
+            <div class="Bio">
+                Welcome!
+            </div>
         </div>
-        <div class="sectionBreak">
-        </div>
-        <div class="Bio">
-            Welcome!
+        <div id = main class="main">
         </div>
     </div>
-    <div id = main class="main">
+
+    <div class="footer">
+        <h2>© Jamie Martin 2025. All Rights Reserved</h2>
     </div>
+
+    <script>
+        document.getElementById("Protfolio").addEventListener("click", () => {
+            updatePortfolio() 
+        });
+        function updatePortfolio() {
+            document.getElementById("main").innerHTML = "Portfolio";
+        }
+
+        document.getElementById("Commissions").addEventListener("click", () => {
+            updateCommissions() 
+        });
+        function updateCommissions() {
+            document.getElementById("main").innerHTML = "Commissions";
+        }
+
+        document.getElementById("Socials").addEventListener("click", () => {
+            updateSocials() 
+        });
+        function updateSocials() {
+            document.getElementById("main").innerHTML = "Socials";
+        }
+
+    </script>
 </div>
-
-<div class="footer">
-    <h2>© Jamie Martin 2025. All Rights Reserved</h2>
-</div>
-
-<script>
-    document.getElementById("Protfolio").addEventListener("click", () => {
-        updatePortfolio() 
-    });
-    function updatePortfolio() {
-        document.getElementById("main").innerHTML = "Portfolio";
-    }
-
-    document.getElementById("Commissions").addEventListener("click", () => {
-        updateCommissions() 
-    });
-    function updateCommissions() {
-        document.getElementById("main").innerHTML = "Commissions";
-    }
-
-    document.getElementById("Socials").addEventListener("click", () => {
-        updateSocials() 
-    });
-    function updateSocials() {
-        document.getElementById("main").innerHTML = "Socials";
-    }
-
-</script>
-
 </body>
 </html>
