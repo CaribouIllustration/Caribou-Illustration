@@ -7,7 +7,7 @@
 <style>
     
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: century-gothic, sans-serif;
       margin: 0;
     }
 
@@ -60,13 +60,14 @@
         display: flex;
         flex-wrap: wrap;
         background-color: #102f0b;
+
     }
   
     /* Create two unequal columns that sits next to each other */
     /* Sidebar/left column */
     .side {
         flex: 30%; /* Set the width of the sidebar */
-        height: 500px;
+        min-height: 500px;
         background-color: hsl(0, 0%, 0%); /* Grey background color */
         padding: 20px; /* Some padding */
         border: 10px solid #102f0b;
@@ -111,11 +112,11 @@
     }
 
     .sectionBreak{
-        flex: 10%;
-        min-height: 20px;
+        min-height: 10px;
     }
 
     .Bio{
+        padding: 10px;
         flex: 40%;
         color: white;
         text-align: center;
@@ -127,11 +128,30 @@
         border: 3px solid white;
     }
 
-    .Portfolio1{
-        flex:45%;
+    .Portfolio{
+        flex:100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        justify-content: center;
     }
-    .Portfolio2{
-        flex: 10%;
+    .text{
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+    }
+    .column {
+        flex:100%;
+        max-height: 30%;
+        max-width: 30%;
+        object-fit: fill;
+        padding: 5px;
+
+    }
+
+    .PortfolioBreak{
+        height: 50px;
     }
 
     .Commission{
@@ -174,7 +194,8 @@
             <div class="sectionBreak">
             </div>
             <div class="Bio">
-                Welcome!
+                <header>Welcome!</header>
+                
             </div>
         </div>
         <div id = main class="main">
@@ -190,7 +211,38 @@
             updatePortfolio() 
         });
         function updatePortfolio() {
-            document.getElementById("main").innerHTML = "Portfolio";
+            document.getElementById("main").innerHTML = 
+            `<div class="text">
+                Original Works
+            </div>
+            <div class="Portfolio">
+                <div class="column">
+                    <img src="images/Pictures/Michael Wave Sample.jpg" alt="Michael" style="width:100%"></img>
+                  </div>
+                  <div class="column">
+                    <img src="images/Pictures/sarufa Sample.jpg" alt="sarufa" style="width:100%"></img>
+                  </div>
+                  <div class="column">
+                    <img src="images/Pictures/Uncharted Sample.jpg" alt="Uncharted" style="width:100%"></img>
+                  </div>
+            </div>
+            <div class="PortfolioBreak">
+
+            </div>
+            <div class="text">
+                Fan Works
+            </div>
+            <div class="Portfolio">
+                <div class="column">
+                    <img src="images/Pictures/Michael Wave Sample.jpg" alt="Michael" style="width:100%"></img>
+                  </div>
+                  <div class="column">
+                    <img src="images/Pictures/sarufa Sample.jpg" alt="sarufa" style="width:100%"></img>
+                  </div>
+                  <div class="column">
+                    <img src="images/Pictures/Uncharted Sample.jpg" alt="Uncharted" style="width:100%"></img>
+                  </div>
+            </div>`
         }
 
         document.getElementById("Commissions").addEventListener("click", () => {
