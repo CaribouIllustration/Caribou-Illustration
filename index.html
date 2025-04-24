@@ -124,7 +124,9 @@
 </div>
 
 <script>
-    document.getElementById("Bio").addEventListener("click", updateMain());
+    document.getElementById("Bio").addEventListener("click", () => {
+        updateMain() 
+    });
     function updateMain() {
         document.getElementById("main").innerHTML = "This is new text";
     }
