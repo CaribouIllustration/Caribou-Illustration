@@ -108,13 +108,13 @@
 </div>
 
 <div class="navbar">
-    <a href="#">Bio</a>
-    <a href="#">Catalogue</a>
-    <a href="#">Social Media</a>
-    <a href="#" class="right">Contact</a>
+    <a id = "Bio" href="Bio">Bio</a>
+    <a id = "Cat" href="Catalogue">Catalogue</a>
+    <a href="Media">Social Media</a>
+    <a href="Contact" class="right">Contact</a>
 </div>
 
-<div class="row">
+<div id = main class="row">
     <div class="side">Side Content</div>
     <div class="main">Main Content</div>
 </div>
@@ -122,6 +122,13 @@
 <div class="footer">
     <h2>Footer</h2>
 </div>
+
+<script>
+    document.getElementById("Bio").addEventListener("click", updateMain());
+    function updateMain() {
+        document.getElementById("main").innerHTML = "This is new text";
+    }
+</script>
 
 </body>
 </html>
