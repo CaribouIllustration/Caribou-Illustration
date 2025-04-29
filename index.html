@@ -142,7 +142,7 @@
         touch-action: none;
         user-select: none;
         overflow: auto;
-
+        scrollbar-color: white black;
       }
       
       div.scroll-container img {
@@ -194,7 +194,8 @@
         flex: 5%;
         height: 5%;
         text-align: center; /* Center text*/
-        background: #ddd; /* Grey background */
+        background: #000000; /* Grey background */
+        color: white;
 
         font-size: 8px;
     }
@@ -236,20 +237,20 @@
         });
         function updatePortfolio() {
 
-            // loop through all images in Original
             originalImages = '<img src="images/Pictures/Original/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
                              '<img src="images/Pictures/Original/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
                              '<img src="images/Pictures/Original/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>'+
                              '<img src="images/Pictures/Original/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
                              '<img src="images/Pictures/Original/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
                              '<img src="images/Pictures/Original/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>'
-                // Create a string of all img objects
 
-            // loop through all images in Fan
             fanImages = '<img src="images/Pictures/Fan/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
                         '<img src="images/Pictures/Fan/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
                         '<img src="images/Pictures/Fan/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>'
-                // Create a string of all img objects
+
             document.getElementById("main").innerHTML = 
             `<div class="text">
                 Original Works
