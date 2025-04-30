@@ -109,8 +109,9 @@
     }
 
     .Portrait{
-        flex: 50%;
-        min-height: 100px;
+        flex: 40%;
+        min-height: 500px;
+        min-width: 500px; 
         background-image: url(images/Bio/Bio\ Image.png);
         background-position: center;
         background-size: contain;
@@ -123,16 +124,26 @@
     }
 
     .Bio{
-        padding: 10px;
         flex: 40%;
         color: white;
         text-align: center;
         background-color: black;
 
         margin: auto;
-        width: 60%;
-        height: 50%;
         border: 3px solid white;
+    }
+
+    .BioHeader{
+        padding: 10px;
+        flex: 40%;
+        color: white;
+        text-align: center;
+        background-color: black;
+    }
+
+    .BioWords{
+        text-align: left;
+        object-fit: fill;
     }
 
     div.scroll-container {
@@ -219,8 +230,10 @@
             <div class="sectionBreak">
             </div>
             <div class="Bio">
-                <header>Welcome!</header>
-                
+                <header class="BioHeader">Welcome!</header>
+                <div class="BioWords">
+                    <div>I am Jamie, a young artist based in Canada. Here, I share the fruits of juggling my many creative pursuits with the world. I draw traditionally and digitally, paint, knit, crochet, and craft wire-wrapped natural stone pendants. Constantly trying new ways of making, I strive to capture feelings from the fearful to the whimsical in my art.</div>
+                </div>
             </div>
         </div>
         <div id = main class="main">
