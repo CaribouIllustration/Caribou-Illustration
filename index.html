@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>My Website</title>
+<title>Jamie's Art Space</title>
+<link rel="icon" href="images/icon/Tab icon.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -11,7 +12,7 @@
       margin: 0;
       min-height: 100%;
     }
-    /** { border: 1px solid red !important; }*/
+    * { border: 1px solid red !important; }
  
     /* Style the header */
     .header {
@@ -89,6 +90,7 @@
         display: flex;
         flex-direction: column;
         height: 70%;
+        max-width: 100%;
     }
 
     /* Responsive layout - when the screen is less than 1000px wide, make the two columns stack on top of each other instead of next to each other */
@@ -153,9 +155,8 @@
       
       div.scroll-container img {
         padding: 10px;
-        max-height: 40%;
-        max-width: 40%;
-        object-fit: fill;
+        max-height: 30%;
+        max-width: 30%;
       }
 
     .Portfolio{
@@ -253,20 +254,47 @@
             updatePortfolio() 
         });
         function updatePortfolio() {
+            
+            originalImages = '<img src="images/Pictures/Original Works/Binoculars Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Candor Concept  Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/fayoun sample.jpg" style="width:100%"></img>'+
+                             '<img src="images/Pictures/Original Works/grant sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober 2023 Day 1 Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober day 3 sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober Day 7 sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober Day 21 sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober Day 25 sample.jpg" style="width:100%"></img>'+
+                             '<img src="images/Pictures/Original Works/Inktober Day 30 Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Jodoca 2 sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Jodoca Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/kithnari Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Mercy Sample.jpg" style="width:100%"></img>'+
+                             '<img src="images/Pictures/Original Works/Michael Wave Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Oswonya Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Pahru sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Palette Piece sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Perenelle Action Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Perenelle Sample.jpg" style="width:100%"></img>'+
+                             '<img src="images/Pictures/Original Works/Rhinoceros sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Road sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/trio artwork sample.jpg" style="width:100%"></img>'+
+                             '<img src="images/Pictures/Original Works/Ulvelke  sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Uncharted Sample.jpg" style="width:100%"></img>' +
+                             '<img src="images/Pictures/Original Works/Voc Character Art sample.jpg" style="width:100%"></img>'
 
-            originalImages = '<img src="images/Pictures/Original/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>'+
-                             '<img src="images/Pictures/Original/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>'
-
-            fanImages = '<img src="images/Pictures/Fan/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan/Michael Wave Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan/sarufa Sample.jpg" alt="Michael Original" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan/Uncharted Sample.jpg" alt="Michael Original" style="width:100%"></img>'
+            fanImages = '<img src="images/Pictures/Fan Works/Backpack Sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Darumi Fanart sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Discover sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Drive sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Nomadic Sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Passport Sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/pyramid head sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Ridge sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Takumi Release  day sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Trek sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Wilson card baks sample.jpg" style="width:100%"></img>'+
+                        '<img src="images/Pictures/Fan Works/Wooper Miku sample.jpg" style="width:100%"></img>' +
+                        '<img src="images/Pictures/Fan Works/Yuki Art Trade sample.jpg" style="width:100%"></img>'
 
             document.getElementById("main").innerHTML = 
             `<div class="text">
