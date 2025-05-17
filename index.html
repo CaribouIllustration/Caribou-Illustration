@@ -4,7 +4,7 @@
 <title>Jamie's Art Space</title>
 <link rel="icon" href="images/icon/Tab icon.png">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
     
     body {
@@ -205,15 +205,14 @@
 
     #popupDialog {
         display: none;
-        position: fixed;
-        top: 50%;
+        position:fixed;
+        top: 05%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0%);
         padding: 20px;
-        background-color: #000000;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 1000;
-        max-width: max-content;
+        width: 35%;
     }
 
     #overlay {
@@ -234,6 +233,24 @@
         float: right;
         background: #000000;
 	    color: white;
+    }
+
+    @media screen and (max-width: 1800px) {
+        #popupDialog {
+            width: 45%;
+        }
+    }
+
+    @media screen and (max-width: 1500px) {
+        #popupDialog {
+            width: 50%;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        #popupDialog {
+            width: 65%;
+        }
     }
 
         /* Responsive layout - when the screen is less than 1000px wide, make the two columns stack on top of each other instead of next to each other */
