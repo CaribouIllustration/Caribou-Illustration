@@ -11,6 +11,7 @@
       font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
       margin: 0;
       min-height: 100%;
+      overflow: auto;
     }
     /** { border: 1px solid red !important; }*/
  
@@ -93,20 +94,6 @@
         max-width: 100%;
     }
 
-    /* Responsive layout - when the screen is less than 1000px wide, make the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 900px) {
-        .row {   
-        flex-direction: column;
-        }
-    }
-  
-    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-    @media screen and (max-width: 400px) {
-        .navbar a {
-        float: none;
-        }
-    }
-    
     .Portrait{
         flex: 100%;
         height: 50%;
@@ -151,13 +138,14 @@
         overflow: scroll;
         scrollbar-color: white black;
         -webkit-overflow-scrolling: touch;
+        overflow-y: hidden;
       }
       
-      div.scroll-container img {
-        padding: 10px;
-        max-height: 30%;
-        max-width: 30%;
-      }
+    div.scroll-container img {
+        padding: 8px;
+        max-height: 35%;
+        max-width: 35%;
+    }
 
     .Portfolio{
         flex:100%;
@@ -214,9 +202,61 @@
 
         font-size: 8px;
     }
+
+    #popupDialog {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #000000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        max-width: fit-content;
+        max-height: fit-content;
+    }
+
+    #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    #popupImage {
+        padding: 10px;
+    }
+    #x {
+        position: relative;
+        float: right;
+        background: #000000;
+	    color: white;
+    }
+
+        /* Responsive layout - when the screen is less than 1000px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 900px) {
+        .row {   
+        flex-direction: column;
+        }
+    }
+  
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+    @media screen and (max-width: 400px) {
+        .navbar a {
+        float: none;
+        }
+    }
 </style>
 </head>
-<body onload="updatePortfolio()">
+<body id="body" onload="updatePortfolio()">
+<div id="overlay"></div>
+<div id="popupDialog">
+
+</div>
 <div class="container">
     <div class="header">
     </div>
@@ -226,6 +266,7 @@
         <a id = Commissions href="#">Commissions</a>
         <a id = Socials href="#">Socials</a>
     </div>
+
 
     <div class="row">
         <div id = main class="main">
@@ -255,46 +296,46 @@
         });
         function updatePortfolio() {
             //'<img src="images/Pictures/Original Works/grant sample.jpg" style="width:100%"></img>' +
-            originalImages = '<img src="images/Pictures/Original Works/Binoculars Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Candor Concept  Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/fayoun sample.jpg" style="width:100%"></img>'+
+            originalImages = '<img src="images/Pictures/Original Works/Binoculars Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Candor Concept  Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/fayoun sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'+
                             
-                             '<img src="images/Pictures/Original Works/Inktober 2023 Day 1 Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Inktober day 3 sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Inktober Day 7 sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Inktober Day 21 sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Inktober Day 25 sample.jpg" style="width:100%"></img>'+
-                             '<img src="images/Pictures/Original Works/Inktober Day 30 Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Jodoca 2 sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Jodoca Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/kithnari Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Mercy Sample.jpg" style="width:100%"></img>'+
-                             '<img src="images/Pictures/Original Works/Michael Wave Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Oswonya Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Pahru sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Palette Piece sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Perenelle Action Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Perenelle Sample.jpg" style="width:100%"></img>'+
-                             '<img src="images/Pictures/Original Works/Rhinoceros sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Road sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/trio artwork sample.jpg" style="width:100%"></img>'+
-                             '<img src="images/Pictures/Original Works/Ulvelke  sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Uncharted Sample.jpg" style="width:100%"></img>' +
-                             '<img src="images/Pictures/Original Works/Voc Character Art sample.jpg" style="width:100%"></img>'
+                             '<img src="images/Pictures/Original Works/Inktober 2023 Day 1 Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober day 3 sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober Day 7 sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober Day 21 sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Inktober Day 25 sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'+
+                             '<img src="images/Pictures/Original Works/Inktober Day 30 Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Jodoca 2 sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Jodoca Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/kithnari Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Mercy Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'+
+                             '<img src="images/Pictures/Original Works/Michael Wave Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Oswonya Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Pahru sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Palette Piece sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Perenelle Action Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Perenelle Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'+
+                             '<img src="images/Pictures/Original Works/Rhinoceros sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Road sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/trio artwork sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'+
+                             '<img src="images/Pictures/Original Works/Ulvelke  sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Uncharted Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                             '<img src="images/Pictures/Original Works/Voc Character Art sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'
 
-            fanImages = '<img src="images/Pictures/Fan Works/Backpack Sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Darumi Fanart sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Discover sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Drive sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Nomadic Sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Passport Sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/pyramid head sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Ridge sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Takumi Release  day sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Trek sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Wilson card baks sample.jpg" style="width:100%"></img>'+
-                        '<img src="images/Pictures/Fan Works/Wooper Miku sample.jpg" style="width:100%"></img>' +
-                        '<img src="images/Pictures/Fan Works/Yuki Art Trade sample.jpg" style="width:100%"></img>'
+            fanImages = '<img src="images/Pictures/Fan Works/Backpack Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Darumi Fanart sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Discover sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Drive sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Nomadic Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Passport Sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/pyramid head sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Ridge sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Takumi Release  day sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Trek sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Wilson card baks sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'+
+                        '<img src="images/Pictures/Fan Works/Wooper Miku sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>' +
+                        '<img src="images/Pictures/Fan Works/Yuki Art Trade sample.jpg" style="width:100%" onclick="popupFn(this.src)"></img>'
 
             document.getElementById("main").innerHTML = 
             `<div class="text">
@@ -362,7 +403,37 @@
             elem.addEventListener("pointermove", drag);
           };
           
-          document.querySelectorAll("div.scroll-container").forEach(pointerScroll);
+        document.querySelectorAll("div.scroll-container").forEach(pointerScroll);
+
+        function popupFn(imageSource) {
+            document.getElementById(
+                "overlay"
+            ).style.display = "block";
+            document.getElementById(
+                "popupDialog"
+            ).style.display = "block";
+            document.getElementById("body").style.overflow = "hidden";
+
+
+            document.getElementById('popupDialog').innerHTML = 
+            `
+                <button id = "x" onclick="closeFn()">
+                    X
+                </button>
+                <img class="popupImage" src= ${imageSource} style="width:100%" onclick="popupFn(this.src)"></img>
+
+            `;
+        }
+        function closeFn() {
+            document.getElementById(
+                "overlay"
+            ).style.display = "none";
+            document.getElementById(
+                "popupDialog"
+            ).style.display = "none";
+
+            document.getElementById("body").style.overflow = "auto";
+        }
 
     </script>
 </div>
